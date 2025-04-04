@@ -1,0 +1,7 @@
+# Unsure what this folder does exactly, python created it automatically. 
+# It just contains a random cache file I think.
+__pycache__/
+
+*.json
+static/webimages/Can.jpeg
+static/webimages/Placeholder.jpg

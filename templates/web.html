@@ -1,0 +1,381 @@
+<!-- Team 'Cheese' CanSat -- HTML for Web-->
+
+<!-- I don't consider myself an expert at HTML by any means, 
+Which, to translate for anybody unfamiliar, means I hadn't used it before this.-->
+
+<!-- That is, be warned. This is a real real mess.-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Rednock CanSat</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+      <!--   <link rel="stylesheet" href="static/css/styles.css">-->
+        <link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}"/> 
+        <link href='https://fonts.googleapis.com/css?family=Libre Franklin' rel='stylesheet'>
+    </head>
+    <body>
+    <div class="full-height">
+        <div class="header">
+            <h1>Rednock CanSat &lt3</h1> <!-- Yes, that is a heart. No, I didn't choose to have a heart. 
+            Yes, I tried to negotiate otherwise. My negotiation was unsuccessful. -->
+            <input type="image" src="../static/webimages/MenuButton.png" class="menu-button" onclick="toggleMenu()"></input>
+        </div>
+        <div class="drop-menu-container", id="dmc">
+       <!-- <div class="drop-menu-page-filler"></div> -- Unused for now. -->
+        <div class="drop-menu">
+            <h1 style="flex:25%;">Menu: </h1>
+            <button class="drop-menu-about-button, menu-option-styling", onclick="goToAbout()">About</button>
+            <button class="drop-menu-feed-button, menu-option-styling", onclick="goToFeed()">Feed</button>
+            <button class="drop-menu-data-button, menu-option-styling", onclick="goToData()">Data</button>
+        </div>
+       </div>
+         <div class="row">
+            <div class="feed-page", id="fp">
+            <div class="feed">
+                 <div class="feed-head">
+                    <h1 id="feed-head-head">Live Feed</h1>
+                 </div>
+                 <div class="feed-content">
+                    <div class="is-connected" id="backendDisplay" style="background-color: #e3b307;">Server: Unknown</div>
+                    <div class="is-connected" id="sateliteDisplay" style="background-color: #e3b307;">Satelite: Unknown</div>
+                    <table class="data-table"  id="dataTable">
+                        <tr style="height:5%"><th>Index</th><th>Temperature/Degrees C</th><th>Pressure/hPa</th><th>Altitude\m</th><th>Humidity/%</th></tr>  
+                    </table>
+                 </div>
+                 <div class="feed-foot">
+                    <p>Live data feed updated periodically while connected.</p>
+                 </div>
+            </div>
+            <div class="feed-side">
+                <div class="fside-header">
+                    <h1>Feed</h1>
+                </div>
+                <div class="fside-content">
+                    <p>While connected to both the server and the satelite, this table will constantly display new data. Newest data can be found at the bottom.</p>
+                </div>
+            </div>
+            </div>
+            <div class="data-page", id="dp">
+                <div class="data-side">
+                    <div class="dside-header">
+                        <h1>Data</h1>
+                    </div>
+                    <div class="dside-content">
+                        <p>This page will display the graphs of different measurements after the launch has occurred.<br>The page will have to be refreshed after the flight has finished.<br>Do not refresh page during flight.</p>
+                    </div>
+                </div>
+                <div class="data-graph">
+                    <div class="dgraph-box">
+                        <div class="dgraph-bhead">
+                            <h1>Graphs: </h1>
+                        </div>
+                        <div class="dgraph-content">
+                            <div class="dgraph-presbox, dggb">
+                            <div class="dgpre-head, dgche"><h2>Pressure: </h2></div>
+                            <img class="dgraph-pressure, dgi" src="static/savedFigures/figurePressure.png">
+                            </div>
+                            <div class="dgraph-tempbox, dggb">
+                            <div class="dgtem-head, dgche"><h2>Temperature: </h2></div>
+                            <img class="dgraph-temp, dgi" src="static/savedFigures/figureTemperature.png">
+                            </div>
+                           <div class="dgraph-altbox, dggb">
+                            <div class="dgtem-head, dgche"><h2>Altitude: </h2></div>
+                            <img class="dgraph-temp, dgi" src="static/savedFigures/figureAltitude.png">
+                            </div>
+                            <div class="dgraph-humbox, dggb">
+                            <div class="dgtem-head, dgche"><h2>Humidity: </h2></div>
+                            <img class="dgraph-temp, dgi" src="static/savedFigures/figureHumidity.png">
+                            </div> 
+                        </div>
+
+                        <div class="dgraph-bfoot">
+                           <p1>Images load once created after launch.</p1>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            <div class="about-page", id="ap">
+                <div class="about-img">
+                    <div class="can-image-container">
+                        <img class="can-img" src="CENSORED_DUE_TO_STUDENT_PRESENCE", width="700", height="700">
+                    </div>
+                    <div class="can-image-caption">
+                        <h1>The Can</h1>
+                    </div>
+                </div>
+                <div class="about-info">
+                    <div class="abin-head">
+                        <h1>About</h1>
+                    </div>
+                    <div class="abin-content"> <!-- -->
+                        <p>Development of our can started in October 2024. The first few months were spent on software - mainly trying to set up the receiver system with a simple web backend. Since then however we focused on the circuitry of the can and the physical design, including the landing system. </p>
+                        <p>The website is built with Python and Javascript. We run the web app via the Flask library and communicate between the frontend and backend using SocketIO/Websockets. When the radio receiver receives data, it uploads it to a spreadsheet which we then read and send to the website to be appended to the table, where it is displayed on the ‘Feed’ page. Once the flight is complete, we can display graphs of the data - made with the Python libraries Pandas and MatPlotLib - which will appear on the ‘Data’ page after refreshing. Do not refresh the page during flight. </p>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="footer">
+            --  Cansat and website created and designed by team 'Cheese' -- <!-- We deserve credit.-->
+        </div>
+    </div>  
+    </body>
+    <script src="{{url_for('static', filename='js/main.js')}}"></script>
+    <!-- SocketIO -->
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" 
+    integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO"     
+    crossorigin="anonymous"></script>
+    <script> // All JS is within this box rather than main.JS due to technical difficulties. 
+        // JS
+        let socket = io(); // Initialises socketio
+        let indexConcurrentValue = 0 // Initialises concurrent value
+        let stopped = false // Initialises check variable to see if a disconnect has been forced
+
+        function conDisSwapServer(to) { // Swaps the 'server status' ui element.
+            const element = document.getElementById("backendDisplay")
+            if (to == "Connected") {
+                element.style.backgroundColor = "#1cd64e"
+                element.innerHTML = "Server: Connected"
+            }
+            else if (to == "Disconnected") {
+                element.style.backgroundColor = "#eb4034"
+                element.innerHTML = "Server: Disconnected"
+            }
+            else if (to == "Error") {
+                element.style.backgroundColor = "#eb5e07"
+                element.innerHTML = "Server: Error"
+            }
+            else if (to == "Unknown") {
+                element.style.backgroundColor = "#e3b307"
+                element.innerHTML = "Server: Unknown"
+            }
+            else if (to == "Finished") {
+                element.style.backgroundColor = "#00c3d9"
+                element.innerHTML = "Flight Finished!"
+            }
+            else if (to == "Cooldown") {
+                element.style.backgroundColor = "#eb8407"
+                element.innerHTML = "Server: Error Caused Cooldown"
+            }
+            else {
+                element.style.backgroundColor   = "#4a4c57"
+                element.innerHTML = "Issue"
+            }
+        }
+        
+        function conDisSwapSatelite(to) { // Swaps the 'satelite status' ui element.
+            const element = document.getElementById("sateliteDisplay")
+            if (to == "Connected") {
+                element.style.backgroundColor = "#1cd64e"
+                element.innerHTML = "Satelite: Connected"
+            }
+            else if (to == "Disconnected") {
+                element.style.backgroundColor = "#eb4034"
+                element.innerHTML = "Satelite: Disconnected"
+            }
+            else if (to == "Error") {
+                element.style.backgroundColor = "#eb5e07"
+                element.innerHTML = "Satelite: Error"
+            }
+            else if (to == "Unknown") {
+                element.style.backgroundColor = "#e3b307"
+                element.innerHTML = "Satelite: Unknown"
+            }
+            else if (to == "Cooldown") {
+                element.style.backgroundColor = "#eb8407"
+                element.innerHTML = "Satelite: Error Caused Cooldown"
+            }
+            else if (to == "Finished") {
+                element.style.backgroundColor = "#00c3d9"
+                element.innerHTML = ""
+            }
+            else { 
+                element.style.backgroundColor   = "#4a4c57"
+                element.innerHTML = "Issue"
+            }
+        }
+        
+        
+        function appendToLiveData(val1, val2, val3, val4, val5) { // Appends values to the table element.
+            const dataElement = document.getElementById("dataTable")
+            let newRow = dataElement.insertRow(1)
+            let indCell = newRow.insertCell(0)
+            let tempCell = newRow.insertCell(1)
+            let pressCell = newRow.insertCell(2)
+            let altCell = newRow.insertCell(3)
+            let humCell = newRow.insertCell(4)
+            indCell.innerHTML = `${val1}`
+            tempCell.innerHTML = `${val2}`
+            pressCell.innerHTML = `${val3}`
+            altCell.innerHTML = `${val4}`
+            humCell.innerHTML = `${val5}`
+
+      // Old     //  dataElement.innerHTML = dataElement.innerHTML + `<tr><td id="indexValue">${val1}</td><td id="tempValue">${val2}</td></td><td id="pressureValue">${val3}</td></tr>`
+        }
+        
+        socket.on('connect', function(){     // Triggers on the connection of socketio
+            console.log("Log: Socket Connect")
+            if (performance.navigation.type == performance.navigation.TYPE_RELOAD) { // If the page has been reloaded
+            console.log("Log: Page Reloaded")
+            socket.emit("reqcon") // Request concurrent data rather than starting data reciving
+        }
+        else { // If the page isn't reloaded. 
+            console.log("Log: Not Reloaded")
+            socket.emit("reqsat", -1)
+        }
+
+        socket.on('disconnect', function(){ // Triggers upon the disconnection of the backend (Hopefully if the file stops running for any reason)
+            console.log("Log: Disconnect")
+            conDisSwapServer("Disconnected")
+            conDisSwapSatelite("Unknown")
+        })
+            
+        });
+
+        socket.on('change-status-server', function(d){
+            conDisSwapServer(d)
+        })
+
+        socket.on('change-status-satelite', function(d){
+            conDisSwapSatelite(d)
+        })
+
+        socket.on('send-line', function(d){
+            item = JSON.parse(d)
+            let index = item["index:"]
+            let temp = item["temp:"]
+            let pressure = item["pressure:"]
+            let alt = item["alt:"]
+            let hum = item["humidity:"]
+            appendToLiveData(index, temp, pressure, alt, hum)
+        })
+
+        function appendConcurrentData(elm) {
+            item = JSON.parse(elm)
+            let index = item["index:"]
+            let temp = item["temp:"]
+            let pressure = item["pressure:"]
+            let alt = item["alt:"]
+            let hum = item["humidity:"]
+            // Will need editing when four data points.
+            appendToLiveData(index, temp, pressure, alt, hum)
+        }
+
+        socket.on("sendcon", function(d){
+            d.forEach(appendConcurrentData)
+            socket.emit("reqsat", d.length)
+        })
+
+        socket.on("printerr", function(e){ 
+            console.log("Log: Error")
+            throw new Error(e)
+        })
+
+        socket.on("startupid", function(i){
+            console.log("Log: Starting Flight!\n" + "Flight ID: " + i);
+            const headerElement = document.getElementById("feed-head-head")
+            headerElement.innerHTML = `Live Feed -- Flight ID: ${i}`
+        })
+        
+  /*      socket.on("reqStillOngoing", function() { 
+            console.log("Stopped?",stopped)
+            if (stopped == false) {
+                socket.emit("returnOngoing", "true")
+            }
+            else {
+                socket.emit("returnOngoing", "false")
+            }
+        
+        })
+*/
+        if (window.performance) {
+            console.log("Log: Window Performing!")
+        }
+
+        window.onbeforeunload = function() {
+            console.log("Are you sure you want to reload the page? Reloading during flight will cause issues!")
+            return "Are you sure you want to reload the page? Reloading during flight will cause issues!"
+        }
+
+     /*   function forceDisconnect() { // This doesn't do anything at the moment
+            stopped = true 
+        }   */
+
+        function toggleMenu() {
+            const menuelement = document.getElementById("dmc")
+            const menuelementComp = window.getComputedStyle(menuelement).display;
+            if (menuelementComp==='none') {
+                menuelement.style.display = 'flex'
+            }
+            else {
+                menuelement.style.display = 'none'
+            }
+            // If menu style display none then activate
+            // Else deactivate menu element
+        }
+        function goToAbout() { // Goes to the "About" page, disables others
+            const aboutelement = document.getElementById("ap")
+            const feedelement = document.getElementById("fp")
+            const dataelement = document.getElementById("dp")
+            const aboutelementComp = window.getComputedStyle(aboutelement).display
+            const feedelementComp = window.getComputedStyle(feedelement).display
+            const dataelementComp = window.getComputedStyle(dataelement).display
+            if (aboutelementComp !=="flex") {
+                if (feedelementComp == "flex") {
+                    // Disable feed element, enable about
+                    feedelement.style.display = "none"
+                    aboutelement.style.display = "flex"
+                }
+                else {
+                    // Disable data element, enable about
+                    dataelement.style.display = "none"
+                    aboutelement.style.display = "flex"
+                }
+            }
+        }
+        function goToFeed() { // Goes to the "Feed" page, disables others
+            const aboutelement = document.getElementById("ap")
+            const feedelement = document.getElementById("fp")
+            const dataelement = document.getElementById("dp")
+            const aboutelementComp = window.getComputedStyle(aboutelement).display
+            const feedelementComp = window.getComputedStyle(feedelement).display
+            const dataelementComp = window.getComputedStyle(dataelement).display
+            if (feedelementComp !=="flex") {
+                if (aboutelementComp == "flex") {
+                    // Disable about element, enable feed
+                    aboutelement.style.display = "none"
+                    feedelement.style.display = "flex"
+                }
+                else {
+                    // Disable data element, enable feed
+                    dataelement.style.display = "none"
+                    feedelement.style.display = "flex"
+                }
+            }
+        }
+        function goToData() { // Goes to the "Data" page, disables others
+            const aboutelement = document.getElementById("ap")
+            const feedelement = document.getElementById("fp")
+            const dataelement = document.getElementById("dp")
+            const aboutelementComp = window.getComputedStyle(aboutelement).display
+            const feedelementComp = window.getComputedStyle(feedelement).display
+            const dataelementComp = window.getComputedStyle(dataelement).display
+            if (dataelementComp !=="flex") {
+                if (aboutelementComp == "flex") {
+                    // Disable about element, enable data
+                    aboutelement.style.display = "none"
+                    dataelement.style.display = "flex"
+                }
+                else {
+                    // Disable feed element, enable data
+                    feedelement.style.display = "none"
+                    dataelement.style.display = "flex"
+                }
+            }
+        }
+        // JS
+        </script>
+</html>

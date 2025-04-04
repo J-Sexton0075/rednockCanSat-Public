@@ -1,0 +1,291 @@
+/* Team 'Cheese' CanSat -- Web main CSS styles. */
+
+/*
+Now I know this isn't the cleanest but the website design wasn't top priority. 
+
+I feel like I must add:
+Website design wasn't the developer's choice. Our teams 'designer' chose the theme. Our 'designer' also had no experience with HTML and CSS
+Neither did I, but alas, now we have CSS script almost as messy as the backend code. 
+
+*/
+
+html, body, .full-height { 
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Libre Franklin', sans-serif;
+    height: 100%;
+    background-color: #7d7598;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+.row {
+    flex: 1 1;
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.about-page {
+    flex:100%;
+    display:none;
+    flex-direction: row;
+}
+.data-page {
+    flex:100%;
+    display:none;
+    flex-direction: column;
+}
+.feed-page {
+    flex:100%;
+    display:flex;
+    flex-direction: row;
+}
+.feed {
+    flex: 75%; 
+    background-color: #9fb8ed; 
+    padding: 20px;
+    display:flex;
+    flex-direction: column; 
+}
+
+.feed-side {
+    flex : 25%;
+    background-color: #9fb8ed;
+}
+
+.feed-side .fside-header {
+    text-align: center;
+}
+.feed-side .fside-header h1{
+    font-size: 40px;
+}
+
+.feed-side .fside-content {
+    margin-right: 20px;
+}
+
+.header {
+    text-align: left;
+    background-color: #8773c7;
+    color: #3e00a2;
+    text-indent: 20px;
+    display:flex;
+    flex-direction: row;
+}   
+.header h1 {
+    font-size: 20px;
+    flex: 97.5%;
+}
+.footer {
+    padding: 10px;
+    text-align:right;
+    background-color: #8773c7;
+}
+
+.feed .feed-head {
+    padding: 0.01px;
+    text-align: center;
+    background-color: #7d7598;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.feed .feed-content {
+    flex:50%;
+    display: flex;
+    flex-direction:column;
+}
+.feed .feed-foot {
+    background-color: #7d7598;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 0px 0px 25px 25px    ;
+}
+.feed .feed-content .is-connected {
+    flex: 0 1 2%;  
+    padding: 1px;
+    text-indent: 10px;
+}
+
+.feed .feed-content .data-table {
+    flex: 1 1;
+    background-color: #b9c4dc;
+}
+
+td {
+    text-align: center;
+}
+
+.menu-button {
+    float: right;;
+    flex: 3%;
+    height: 50px;
+    width: 40px;
+}
+
+.drop-menu-container {
+    position:sticky;
+    z-index: 1;
+    flex-direction: row;
+    display: none;
+    flex-wrap: wrap;
+    visibility: visible;
+}
+.drop-menu-page-filler { /* This filler part here is not used currently */
+    opacity: 50%;
+    flex: 90%;
+    background-color: lime; /* test lime */
+}
+
+.drop-menu {
+    text-indent: 30px;
+    background-color: #5e5872;
+    display: flex;
+    flex: 100%;
+    flex-direction: row;
+    float: top;
+}
+
+.menu-option-styling {
+    flex: 25%;
+    background-color: #5e5872;
+    font-size: 30px;
+    border: none;
+    border-radius: 25px 25px 25px 25px;
+    font-style: italic;
+}
+
+.data-page .data-graph {
+    flex: 40%;
+    background-color: #9fb8ed;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.data-page .data-side {
+    flex: 60%;
+    background-color: #9fb8ed;
+}
+
+.data-side .dside-header {
+    text-align: center;
+}
+.data-side .dside-header .h1 {
+    font-size: 40px;
+}
+
+.data-side .dside-content {
+    text-align: center;
+}
+
+.data-graph .dgraph-box {
+    background-color: #b9c4dc;
+    flex: 100%;
+    margin: 20px;
+    border-radius: 25px 25px 25px 25px;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.dgraph-box .dgraph-bhead {
+    text-align: center;
+    flex: 0;
+    padding: 0.01px;
+    background-color: #7d7598;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.dgraph-box .dgraph-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-width: 0;
+    min-height: 0;
+}
+
+.dgche {
+    background-color: #7d7598;
+    flex: 0;
+    text-align: center;
+}
+
+.dgraph-box .dgraph-bfoot {
+    background-color: #7d7598;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 0px 0px 25px 25px    ;
+}
+
+.dggb {
+    display: flex;
+    flex-direction: column;
+    flex: 25%
+}
+
+.dgi {
+    flex: 50%;
+    min-width: 0;
+    align-items: stretch;
+}
+
+.about-page .about-img {
+    flex: 35%;
+    background-color: #9fb8ed;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-page .about-info {
+    flex: 65%;
+    background-color: #9fb8ed;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-img .can-image-container {
+    flex: 90%;
+    margin-left: 10px;
+    justify-content: center;
+    display: flex;
+}
+
+.about-img .can-image-caption {
+    flex: 10%;
+    border-radius: 2px 2px 2px 2px;
+    background-color: #7d7598;
+    text-align: center;
+    font-size: 10px;
+    margin: 2px;
+}
+
+.about-img .can-image-caption.h1 {
+    vertical-align: middle;
+}
+
+.can-img {
+    vertical-align: middle;
+    display: flex;
+    width: 10;
+    height: auto;
+}
+
+.about-info .abin-head {
+    text-align: center;
+}
+
+.about-info .abin-head .h1 {
+    font-size: 40px;
+}
+
+.about-info .abin-content {
+    margin: 20px;
+    font-size: 15px;
+}
